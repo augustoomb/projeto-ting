@@ -36,7 +36,11 @@ def remove(instance):
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        found_element = instance.search(position)
+        print(found_element, file=sys.stdout)
+    except IndexError:
+        print("Posição inválida", file=sys.stderr)
 
 
 # O check_path_file_in_queue verifica se o path_file passado já está na fila.
