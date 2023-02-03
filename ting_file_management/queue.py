@@ -8,6 +8,15 @@ class Queue(AbstractQueue):
     def __len__(self):
         return len(self._data)
 
+    def __str__(self):
+        str_items = ""
+        for i in range(len(self._data)):
+            value = self._data[i]
+            str_items += str(value)
+            if i + 1 < len(self._data):
+                str_items += ", "
+        return "Queue(" + str_items + ")"
+
     def enqueue(self, value):
         self._data.append(value)
 
