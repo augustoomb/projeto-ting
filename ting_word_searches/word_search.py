@@ -1,12 +1,12 @@
-from ting_file_management.queue import Queue
-from ting_file_management.file_process import process
+# from ting_file_management.queue import Queue
+# from ting_file_management.file_process import process
 
 
 def list_contains(list, word, details):
     list_content = []
     for index in range(len(list)):
         if word.lower() in list[index].lower():
-            if details == False:
+            if details is False:
                 list_content.append(
                     {"linha": index + 1}
                 )
@@ -22,7 +22,8 @@ def exists_word(word, instance, details=False):
     occurrence_list = []
     for index in range(len(instance)):
         item_in_queue = instance.search(index)
-        list_content = list_contains(item_in_queue['linhas_do_arquivo'], word, details)
+        list_content = list_contains(item_in_queue['linhas_do_arquivo'],
+                                     word, details)
         if len(list_content) > 0:
             occurrence_list.append({
                 "palavra": word,
